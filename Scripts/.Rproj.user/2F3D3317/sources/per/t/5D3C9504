@@ -1,0 +1,32 @@
+{
+    "id": "5D3C9504",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1601956639223.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "expression": "pops",
+        "caption": "pops",
+        "totalObservations": 46621,
+        "displayedObservations": 46621,
+        "variables": 2,
+        "cacheKey": "597A672A",
+        "object": "pops",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pops&cache_key=597A672A&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314861393404246562,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1601956639223,
+    "read_only": false,
+    "read_only_alternatives": []
+}

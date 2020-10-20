@@ -1,0 +1,68 @@
+# Packages
+require(dplyr)
+require(caret)
+
+# Load data
+load(file = "project_data.RData")
+
+#---------------PROCESS DATA---------------
+# Replace 'C' with NA
+census2018[census2018 == "C"] <- NA
+
+na.omit(census2018)
+
+# Get police columns of interest
+pol_df <- police %>%
+  select(Year.Month, Meshblock, Victimisations)
+
+# Clean for merging
+linking_codes <- area_conversions %>% select(c("SA12018_code", "MB2013_code", ))
+pol_df$Year.Month <- gsub(".* ", "\\2", pol_df$Year.Month)
+
+# Filter police by 2018
+pol_df <- pol_df %>% filter(Year.Month == 2018)
+
+# Merge police
+area_police <- merge(x = linking_codes, y = pol_df, by.x = "MB2013_code", 
+                     by.y = "Meshblock")
+
+# Merge census
+merged <- merge(x = area_police, y = census2018, by.x = "SA12018_code", 
+                     by.y = "Area_code")
+
+# Add victimisation rate as percentage of pop.
+merged <- merged %>% 
+  mutate(victim_pct = (Victimisations/Census_2018_usually_resident_population_count)*100)
+
+# Get features of interest
+merged <- merged[,c(4,7,35,288,333,487)]
+
+# Tidy names
+merged <- merged %>% 
+  rename(pop = Census_2018_usually_resident_population_count,
+         med_age = Census_2018_median_age_CURP,
+         med_income = Census_2018_Total_personal_income_Median_CURP_15years_and_over,
+         unemploy = Census_2018_Work_and_labour_force_status_3_Unemployed_CURP_15years_and_over)
+
+# Remove duplicate rows
+merged <- merged %>% distinct()
+
+# Convert all to numeric
+merged[] <- sapply(merged, as.numeric)
+
+# Get unemployment %
+merged$unemploy <- (merged$unemploy/merged$pop)*100
+
+# Clean
+merged <- merged %>% filter(pop > 0, med_income > 0)
+
+# Impute missing with mean
+for(i in 1:ncol(merged)){
+    merged[is.na(merged[,i]), i] <- mean(merged[,i], na.rm = TRUE)
+}
+
+#---------------BUILD MODEL---------------
+
+ggplot(merged) + geom_point(aes(x=Victimisations, y=med_age))
+
+lm(Victimisations)

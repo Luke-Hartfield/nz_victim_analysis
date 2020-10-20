@@ -1,0 +1,22 @@
+# Packages
+require(dplyr)
+require(ggplot2)
+
+# Load data
+load(file = "project_data.RData")
+pops <- read.csv("population_mesh.csv")
+#---------------PROCESS DATA---------------
+
+pops <- pops[,c(3,4)]
+
+police_m <- merge(x = police, y = pops, by.x = "Meshblock", 
+                     by.y = "MeshblockNumber")
+
+police_m$v_pct <- (police_m$Victimisations/police_m$Population_Count_Usual_Resident_2013)*100
+
+police_m$Occurrence.Hour.Of.Day <- as.numeric(police_m$Occurrence.Hour.Of.Day)
+
+police_m$Occurrence.Hour.Of.Day[police_m$Occurrence.Hour.Of.Day==99] <- NA
+
+police_m <- na.omit(police_m)
+ggplot(police_m) + geom_point(aes(x=Occurrence.Hour.Of.Day, y=v_pct))

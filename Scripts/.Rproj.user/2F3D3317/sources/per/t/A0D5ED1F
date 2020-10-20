@@ -1,0 +1,32 @@
+{
+    "id": "A0D5ED1F",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1601956704085.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "police_m",
+        "caption": "police_m",
+        "totalObservations": 1209180,
+        "displayedObservations": 1209180,
+        "variables": 18,
+        "cacheKey": "17748BA6",
+        "object": "police_m",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=police_m&cache_key=17748BA6&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8080056003806104108,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1601956704085,
+    "read_only": false,
+    "read_only_alternatives": []
+}

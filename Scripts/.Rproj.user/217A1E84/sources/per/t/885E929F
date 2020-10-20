@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1598228801493.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "56984171",
+    "id" : "885E929F",
+    "lastKnownWriteTime" : 1598334728,
+    "last_content_update" : 1598334727826,
+    "path" : "D:/Uni Work/DATA301/Project/R Workspace/Project Script.R",
+    "project_path" : "Project Script.R",
+    "properties" : {
+        "cursorPosition" : "21,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

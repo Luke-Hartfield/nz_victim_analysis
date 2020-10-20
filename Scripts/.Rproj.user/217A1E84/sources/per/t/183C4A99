@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1598329473691.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "183C4A99",
+    "lastKnownWriteTime" : 1598327628,
+    "last_content_update" : 1598329473691,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "40F25774",
+        "caption" : "TandP_Police_full",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=TandP_Police_full&cache_key=40F25774",
+        "displayedObservations" : 1213977,
+        "environment" : "",
+        "expression" : "TandP_Police_full",
+        "object" : "TandP_Police_full",
+        "preview" : 0,
+        "totalObservations" : 1213977,
+        "variables" : 17
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,38 @@
+# Packages
+library(naniar)
+library(dplyr)
+
+# Load datasets
+load(file = "Data301Project.RData")
+
+# Replace 'C' with NA
+census2018[census2018 == "C"] <- NA
+
+# Count NAs
+NA_Sums <- as.data.frame(colSums(is.na(census2018)))
+NA_Sums <- as.data.frame(colSums(is.na(TandP_Police_full)))
+
+# Count errors
+table(unlist(TandP_Police_full$Area.Unit))
+sum(TandP_Police_full$Meshblock < 100)
+TandP_Police_full <- na.omit(TandP_Police_full)
+sum(TandP_Police_full$Occurrence.Hour.Of.Day < 23)
+sum(TandP_Police_full$Location.Type == ".")
+
+# Clean for merging
+area_conversions <- area_conversions %>% select(c("SA12018_code", "MB2018_code"))
+TandP_Police_full$Year.Month <- gsub(".* ", "\\2", TandP_Police$Year.Month)
+
+# Filter police by 2018
+TandP_Police2018 <- TandP_Police_full %>% filter(Year.Month == 2018)
+
+# Merge police
+merged_df <- merge(x = area_conversions, y = TandP_Police2018, by.x = "MB2018_code", 
+                   by.y = "Meshblock")
+
+# Merged census
+merged_df2 <- merge(x = merged_df, y = census2018, by.x = "SA12018_code", 
+                   by.y = "Area_code")
+
+# Check if columns are equal
+all(TandP_Police_full$Year.Month == TandP_Police_full$Month.Year)
