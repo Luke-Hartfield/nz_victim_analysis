@@ -1,2 +1,2 @@
 # Detailed Analysis of Police NZ and Census Data
-This repo contains both the scripts used and the final report though, the script does not contain the code for the exploratory analysis shown in the report. Feel free to use the files as you please.
+This repo contains both the scripts used and the final report though, the script does not contain the code for the exploratory analysis shown in the report. Feel free to use the files as you please. Produced as part of the DATA301 course at Victoria University of Wellington by Luke Hartfield with input from fellow students Aline Valerio and Jess Mazengarb.
